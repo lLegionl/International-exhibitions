@@ -59,7 +59,7 @@ if (!$exhibition) {
                     <p class="museum"><?php echo htmlspecialchars($exhibition['museum_name']); ?>, <?php echo htmlspecialchars($exhibition['museum_location']); ?></p>
                     <p class="date"><?php echo date('d.m.Y', strtotime($exhibition['start_date'])); ?> - <?php echo date('d.m.Y', strtotime($exhibition['end_date'])); ?></p>
                     <p class="price"><?php echo htmlspecialchars($exhibition['price']); ?> €</p>
-                    <a href="booking.php?exhibition_id=<?php echo $exhibition['id']; ?>" class="btn">Забронировать билет</a>
+                    <a href="<?php if (!empty($_SESSION['user_id'])) { echo 'booking.php?id='.$row['id'];} else echo 'login.php';?>" class="btn">Забронировать билет</a>
                 </div>
             </div>
 

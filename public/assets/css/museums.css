@@ -1,5 +1,6 @@
 .museums-page {
     padding: 100px 0 50px;
+    min-height: 90vh;
 }
 
 .museums-page h1 {
