@@ -120,13 +120,13 @@ nav {
     height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     background: linear-gradient(135deg, rgba(74, 111, 165, 0.8), rgba(22, 96, 136, 0.9)), url('../images/hero-bg.jpg') no-repeat center center/cover;
     color: white;
     padding-top: 80px;
 }
 
 .hero-content {
-    flex: 1;
     padding-right: 50px;
 }
 

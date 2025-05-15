@@ -7,7 +7,7 @@ if (!isset($_GET['id'])) {
 }
 
 $exhibition_id = intval($_GET['id']);
-$stmt = $pdo->prepare("SELECT e.*, m.name as museum_name, m.location as museum_location FROM exhibitions e JOIN museums m ON e.museum_id = m.id WHERE e.id = ?");
+$stmt = $pdo->prepare("SELECT e.*, m.name as museum_name, m.location as museum_location, m.working_hours as working_hours FROM exhibitions e JOIN museums m ON e.museum_id = m.id WHERE e.id = ?");
 $stmt->execute([$exhibition_id]);
 $exhibition = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -32,7 +32,7 @@ if (!$exhibition) {
                 <a href="index.php" class="logo">ArtExpo</a>
                 <ul class="nav-links">
                     <li><a href="index.php">Главная</a></li>
-                    <li><a href="museums.php">Музеи</a></li>
+                    <li><a href="exhibitions.php">Выставки</a></li>
                     <li><a href="contacts.php">Контакты</a></li>
                     <li><a href="login.php">Вход</a></li>
                     <li><a href="register.php">Регистрация</a></li>
@@ -67,7 +67,7 @@ if (!$exhibition) {
                     <div class="detail-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <h3>Местоположение</h3>
-                        <p><?php echo htmlspecialchars($exhibition['museum_name']); ?>, <?php echo htmlspecialchars($exhibition['museum_location']); ?></p>
+                        <p><?php echo htmlspecialchars($exhibition['museum_location']); ?></p>
                     </div>
                     <div class="detail-item">
                         <i class="fas fa-calendar-alt"></i>
@@ -77,7 +77,7 @@ if (!$exhibition) {
                     <div class="detail-item">
                         <i class="fas fa-clock"></i>
                         <h3>Часы работы</h3>
-                        <p>Ежедневно с 10:00 до 18:00</p>
+                        <p><?php echo htmlspecialchars($exhibition['working_hours']); ?></p>
                     </div>
                     <div class="detail-item">
                         <i class="fas fa-ticket-alt"></i>

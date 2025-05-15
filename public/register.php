@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <a href="index.php" class="logo">ArtExpo</a>
                 <ul class="nav-links">
                     <li><a href="index.php">Главная</a></li>
-                    <li><a href="museums.php">Музеи</a></li>
+                    <li><a href="exhibitions.php">Выставки</a></li>
                     <li><a href="contacts.php">Контакты</a></li>
                     <li><a href="login.php">Вход</a></li>
                     <li><a href="register.php">Регистрация</a></li>
@@ -127,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <footer>
         <div class="container">
-            <p>&copy; 2023 ArtExpo. Все права защищены.</p>
+            <p>&copy; 2025 ArtExpo. Все права защищены.</p>
         </div>
     </footer>
 

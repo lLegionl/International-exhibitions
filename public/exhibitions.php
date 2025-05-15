@@ -15,7 +15,7 @@
                 <a href="index.php" class="logo">ArtExpo</a>
                 <ul class="nav-links">
                     <li><a href="index.php">Главная</a></li>
-                    <li><a href="museums.php">Музеи</a></li>
+                    <li><a href="exhibitions.php">Выставки</a></li>
                     <li><a href="contacts.php">Контакты</a></li>
                     <li><a href="login.php">Вход</a></li>
                     <li><a href="register.php">Регистрация</a></li>
@@ -31,19 +31,19 @@
 
     <main class="museums-page">
         <div class="container">
-            <h1>Наши музеи-партнёры</h1>
+            <h1>Представленные выставки</h1>
             
             <div class="museums-grid">
                 <?php
-                $stmt = $pdo->query("SELECT * FROM museums");
-                while ($museum = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $stmt = $pdo->query("SELECT e.*, m.name as museum_name, m.location as museum_location, m.working_hours as working_hours FROM exhibitions e JOIN museums m");
+                while ($exhibitions = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     echo '<div class="museum-card">
-                        <div class="museum-image" style="background-image: url(assets/images/'.$museum['image'].')"></div>
+                        <div class="museum-image" style="background-image: url(assets/images/'.$exhibitions['image'].')"></div>
                         <div class="museum-info">
-                            <h2>'.$museum['name'].'</h2>
-                            <p class="location"><i class="fas fa-map-marker-alt"></i> '.$museum['location'].'</p>
-                            <p class="description">'.substr($museum['description'], 0, 150).'...</p>
-                            <a href="museum.php?id='.$museum['id'].'" class="btn">Подробнее</a>
+                            <h2>'.$exhibitions['title'].'</h2>
+                            <p class="location"><i class="fas fa-map-marker-alt"></i> '.$exhibitions['museum_location'].'</p>
+                            <p class="description">'.substr($exhibitions['description'], 0, 150).'...</p>
+                            <a href="exhibition.php?id='.$exhibitions['id'].'" class="btn">Подробнее</a>
                         </div>
                     </div>';
                 }
