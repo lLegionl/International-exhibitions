@@ -124,7 +124,7 @@ $bookings = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <footer>
         <div class="container">
-            <p>&copy; 2023 ArtExpo. Все права защищены.</p>
+            <p>&copy; 2025 ArtExpo. Все права защищены.</p>
         </div>
     </footer>
 

@@ -17,8 +17,12 @@
                     <li><a href="index.php">Главная</a></li>
                     <li><a href="exhibitions.php">Выставки</a></li>
                     <li><a href="contacts.php">Контакты</a></li>
+                    <?php if (!empty($_SESSION['user_id'])) {?>
+                    <li><a href="profile.php">Профиль</a></li>
+                    <?php } else {?>
                     <li><a href="login.php">Вход</a></li>
                     <li><a href="register.php">Регистрация</a></li>
+                    <?php } ?>
                 </ul>
                 <div class="burger">
                     <div class="line1"></div>
@@ -43,19 +47,19 @@
             <div class="exhibitions-grid">
                 <?php
                 $stmt = $pdo->query("SELECT e.*, m.name as museum_name FROM exhibitions e JOIN museums m ON e.museum_id = m.id LIMIT 3");
-                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    echo '<div class="exhibition-card" data-id="'.$row['id'].'">
-                        <div class="card-image" style="background-image: url(assets/images/'.$row['image'].')"></div>
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
+                    <div class="exhibition-card" data-id="<?=$row['id']?>">
+                        <div class="card-image" style="background-image: url(assets/images/<?=$row['image']?>)"></div>
                         <div class="card-content">
-                            <h3>'.$row['title'].'</h3>
-                            <p class="museum">'.$row['museum_name'].'</p>
-                            <p class="date">'.date('d.m.Y', strtotime($row['start_date'])).' - '.date('d.m.Y', strtotime($row['end_date'])).'</p>
-                            <p class="price">'.$row['price'].' €</p>
-                            <a href="exhibition.php?id='.$row['id'].'" class="btn">Подробнее</a>
+                            <h3><?=$row['title']?></h3>
+                            <p class="museum"><?=$row['museum_name']?></p>
+                            <p class="date"><?=date('d.m.Y', strtotime($row['start_date'])).' - '.date('d.m.Y', strtotime($row['end_date']))?></p>
+                            <p class="price"><?=$row['price']?> €</p>
+                            <a href="<?php if (!empty($_SESSION['user_id'])) { echo 'exhibition.php?id='.$row['id'];} else echo 'login.php';?>" class="btn">Подробнее</a>
                         </div>
-                    </div>';
-                }
-                ?>
+                    </div>;
+               <?php } ?>
+                
             </div>
         </div>
     </section>

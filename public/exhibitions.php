@@ -17,8 +17,12 @@
                     <li><a href="index.php">Главная</a></li>
                     <li><a href="exhibitions.php">Выставки</a></li>
                     <li><a href="contacts.php">Контакты</a></li>
+                    <?php if (!empty($_SESSION['user_id'])) {?>
+                    <li><a href="profile.php">Профиль</a></li>
+                    <?php } else {?>
                     <li><a href="login.php">Вход</a></li>
                     <li><a href="register.php">Регистрация</a></li>
+                    <?php } ?>
                 </ul>
                 <div class="burger">
                     <div class="line1"></div>
@@ -54,7 +58,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2023 ArtExpo. Все права защищены.</p>
+            <p>&copy; 2025 ArtExpo. Все права защищены.</p>
         </div>
     </footer>
 
