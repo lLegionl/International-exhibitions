@@ -1,0 +1,111 @@
+.exhibition-details {
+    padding: 100px 0 50px;
+}
+
+.exhibition-header {
+    display: flex;
+    margin-bottom: 50px;
+    gap: 40px;
+}
+
+.exhibition-image {
+    flex: 1;
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.exhibition-info {
+    flex: 1;
+    padding: 30px;
+}
+
+.exhibition-info h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+
+.exhibition-info .museum {
+    font-size: 1.2rem;
+    color: var(--gray);
+    margin-bottom: 20px;
+}
+
+.exhibition-info .date {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.exhibition-info .price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin: 30px 0;
+}
+
+.exhibition-content {
+    margin-top: 50px;
+}
+
+.exhibition-content h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--primary);
+}
+
+.exhibition-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.detail-item {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+}
+
+.detail-item:hover {
+    transform: translateY(-10px);
+}
+
+.detail-item i {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 20px;
+}
+
+.detail-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+
+.detail-item p {
+    font-size: 1rem;
+    color: var(--gray);
+}
+
+@media (max-width: 768px) {
+    .exhibition-header {
+        flex-direction: column;
+    }
+    
+    .exhibition-image {
+        height: 300px;
+    }
+}
